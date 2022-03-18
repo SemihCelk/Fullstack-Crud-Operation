@@ -17,8 +17,8 @@ const users = [
   {
     id: "1",
     username: "admin",
-    password: "admin",
-    isAdmin: true,
+    password: "admin",  
+    isAdmin: true,    
   },
   {
     id: "2",
@@ -26,7 +26,7 @@ const users = [
     password: "user",
     isAdmin: false,
   }
-]
+] 
 app.post("/api/login", (req, res) => {
   const { username, password } = req.body;
   const user = users.find((u) => {
@@ -72,15 +72,20 @@ app.get("/api/user", async (req, res) => {
   const list = "select * from kullanicidata order by id";
   const getir = await client.query(list)
   res.json(getir.rows)
-})
+}) 
 //EKLEME
 app.post('/api/user', async (req, res) => {
-    const sql = `INSERT INTO kullanicidata(ad,soyad,pnumber,dtarih,eposta) VALUES ('${req.body.name}','${req.body.surname}','${req.body.phone}','${req.body.date}','${req.body.mail}') RETURNING * ;`
 
-    
-    const response = await client.query(sql)
-    res.json([response.rows])
-});
+  const name = req.body.name
+  const surname= req.body.surname
+  const phone = parseInt(req.body.phone)
+  const date =req.body.date
+  const mail=req.body.mail
+  console.log(name,surname,phone,date,mail)
+  const sql = `INSERT INTO kullanicidata(ad,soyad,pnumber,dtarih,eposta) VALUES ('$1','$2',$3,${req.body.date},'$4') RETURNING * ;`
+    const response = await client.query(sql,[name,surname,phone,mail])
+    res.json([response.rows]) 
+ }); 
 //Hepsini Silme 
 app.delete("/api/user", async (req, res) => {
   const del = "delete from kullanicidata";

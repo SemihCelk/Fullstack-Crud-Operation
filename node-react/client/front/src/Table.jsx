@@ -57,6 +57,7 @@ function Table({ userList, loadData, setPopshow, popShow, setHide, hide, setShow
                                 setPopshow(false)
                                 setShow(false)
                             }}>No</button>
+
                         </div>
                     </div>
                 </div>
@@ -65,8 +66,8 @@ function Table({ userList, loadData, setPopshow, popShow, setHide, hide, setShow
                 <div className='pop-up-top'>
                     <div className='pop-up'>
                         <span id="spanX" onClick={() => {
-                             setYesdel(false)
-                             setShow(false)
+                            setYesdel(false)
+                            setShow(false)
                         }}>X</span>
                         <br></br>
                         <div id='pop-up-text'>Are you sure you want to delete all?</div>

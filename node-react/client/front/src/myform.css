@@ -18,7 +18,7 @@
     width:300px;
     border:none;
     border-bottom:1px solid #757575;
-    border-radius: 10px;
+    border-radius: 5px;
   }
   input:focus 		{ outline:none; }
   
@@ -92,7 +92,9 @@
     pointer-events:none;
     opacity:0.5;
   }
-
+#span{
+  font-family: 'Fredoka', sans-serif;
+}
 #eror{
   color: red;
   font-weight: bold;
