@@ -6,19 +6,12 @@ function MyForm({ loadData, setShow }) {
   const [surname, setSurname] = useState();
   const [phone, setPhone] = useState();
   const [date, setDate] = useState();
-  const [mail, setMail] = useState();
-  const [eror, setEror] = useState(false);
+  const [mail, setMail] = useState("");
+  const [throwError, setThrowError] = useState(false);
   const { handleSubmit, register } = useForm();
-  const onSubmit = (e) => {
-    console.log(mail);
-    if (
-      name === undefined &&
-      surname === undefined &&
-      phone === undefined &&
-      date === undefined &&
-      mail === undefined
-    ) {
-      setEror(true);
+  const onSubmit = () => {
+    if (isNaN(phone)) {
+      setThrowError(true);
     } else {
       const requestOptions = {
         method: "POST",
@@ -30,7 +23,7 @@ function MyForm({ loadData, setShow }) {
         .then((res) => res.json())
         .finally(() => {
           loadData();
-          setEror(false);
+          setShow(false);
         })
         .catch((err) => console.log(err.data));
     }
@@ -39,15 +32,13 @@ function MyForm({ loadData, setShow }) {
     <div className="behind">
       <div className="container left">
         <div>
-          <span id="span">Add User</span>
-          <h2
-            id="h-tag"
+          <span id="spanupdate">Add User</span>
+          <i
+            className="fa-solid fa-xmark x"
             onClick={() => {
               setShow(false);
             }}
-          >
-            X
-          </h2>
+          ></i>
         </div>
         <hr className="line" />
         <form className="form" onSubmit={handleSubmit(onSubmit)}>
@@ -84,11 +75,13 @@ function MyForm({ loadData, setShow }) {
                 onChange={(e) => setPhone(e.target.value)}
                 required
               ></input>
+               {throwError &&(
+              <div id="fillthegaps">Please enter number</div>
+            )}
               <span className="highlight"></span>
               <span className="bar"></span>
               <label>Phone Number*</label>
             </div>
-
             <div className="group">
               <input
                 type="text"
@@ -112,21 +105,26 @@ function MyForm({ loadData, setShow }) {
                       /^(([^<>()[\]\\.,;:\s@"]+(\.[^<>()[\]\\.,;:\s@"]+)*)|(".+"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/,
                   },
                 })}
-                value={mail}
                 onChange={(e) => setMail(e.target.value)}
                 required
               ></input>
               <span className="highlight"></span>
               <span className="bar"></span>
               <label>E-mail*</label>
-              {eror && <span id="eror">Please fill the gaps</span>}
             </div>
-            <button className="updatebtn">Add</button>
+            <button className="acceptbtn">Add</button>
+            <button
+              className="acceptbtn"
+              onClick={() => {
+                setShow(false);
+              }}
+            >
+              Cancel
+            </button>
           </div>
         </form>
       </div>
     </div>
   );
 }
-
 export default MyForm;

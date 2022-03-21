@@ -5,9 +5,15 @@
 }
 #span {
   color: white;
-  margin-left: 3%;
   font-weight: bold;
   font-size: 23px;
+  margin-left: 3%;
+}
+.x{
+  float: right;
+    color: white;
+    margin-right:-6%;
+    cursor: pointer;
 }
 .navbar {
   width: 100%;
@@ -21,7 +27,8 @@
   cursor: pointer;
 }
 .logout:hover {
-  color: rgb(238, 9, 9);
+  color: rgb(255, 73, 73);
+
 }
 #h1 {
   color: white;

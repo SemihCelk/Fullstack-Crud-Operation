@@ -27,7 +27,7 @@
    background-color: white;
    font-weight: bold;
    margin: 0;
-    margin-bottom: 11%;
+   margin-bottom: 8%;
  }
  .updatebtn{
    border-radius: 10px;
@@ -98,4 +98,6 @@
 #eror{
   color: red;
   font-weight: bold;
+}.cancel{
+  margin-right: 10px;
 }

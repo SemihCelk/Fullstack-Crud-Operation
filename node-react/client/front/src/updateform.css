@@ -1,25 +1,25 @@
-.update{
-    height: auto;
-    position: absolute;
-    display: inline-table;
+.update {
+  height: auto;
+  position: absolute;
+  display: inline-table;
 }
 
-.container 		{ 
-  font-family:'Roboto';
-  width:21%;
+.container {
+  font-family: "Roboto";
+  width: 21%;
   background-color: #201631;
   padding: 15px 39px 10px 27px;
   border-radius: 10px;
-  margin-top: 18%;
+  margin-top: 20%;
 }
-input{
-display: inline-block;
+input {
+  display: inline-block;
 }
-.form{
+.form {
   display: flex;
   justify-content: center;
 }
-.behind{
+.behind {
   z-index: 1;
   width: 100%;
   display: flex;
@@ -28,52 +28,87 @@ display: inline-block;
   height: 130vh;
   background-color: rgba(0, 0, 0, 0.658);
   margin-top: -25%;
+}
 
-}   
-
-#h-tag{
+#h-tag {
   float: right;
   font-size: 21px;
   padding: 0;
   margin-right: -9%;
   cursor: pointer;
 }
-#h-tag:hover{
+#h-tag:hover {
   color: red;
 }
-.updatebtn{
-    float: right;
-    margin-bottom: 10px;
+.updatebtn {
+  float: right;
+  margin-bottom: 10px;
 }
-    .group 			  { 
-    position:relative; 
-    margin-bottom:45px; 
-  }
-  input 				{
-    font-size:18px;
-    padding:10px 10px 10px 5px;
-    display:block;
-    width:300px;
-    border:none;
-    border-bottom:1px solid #757575;
-  }
-  input:focus 		{ outline:none; }
-  
-  label 				 {
-    color:#999; 
-    font-size:18px;
-    font-weight:normal;
-    position:absolute;
-    pointer-events:none;
-    left:5px;
-    top:10px;
-    transition:0.2s ease all; 
-    -moz-transition:0.2s ease all; 
-    -webkit-transition:0.2s ease all;
-  }
- 
-  input:focus ~ label, input:valid ~ label 		{
-    top:-20px;
-    font-size:14px;
-    color:#ffffff;
-  }
+.group {
+  position: relative;
+  margin-bottom: 33px;
+}
+input {
+  font-size: 17px;
+  font-family: "Arimo", sans-serif;
+  padding: 11px 10px 10px 5px;
+  display: block;
+  width: 300px;
+  border: none;
+  border-bottom: 1px solid #757575;
+}
+input:focus {
+  outline: none;
+}
+.acceptbtn {
+  margin-bottom: 10px;
+  margin-top: -13px;
+  width: 66px;
+  padding: 8px 8px 8px 8px;
+  text-align: center;
+  float: right;
+  border: 1px solid white;
+  background-color: white;
+  color: black;
+  border-radius: 5px;
+  margin-left: 10px;
+  font-weight: bold;
+}
+#spanupdate{
+  color: white;
+  font-weight: bold;
+  font-size: 23px;
+  font-family: 'Fredoka', sans-serif;
+}
+
+.acceptbtn:hover {
+  background-color: #7b689e;
+  border: 1px solid #7b689e;
+  color: white;
+}
+label {
+  font-family: "Arimo", sans-serif;
+  color: #999;
+  font-size: 17px;
+  font-weight: normal;
+  position: absolute;
+  pointer-events: none;
+  left: 5px;
+  top: 11px;
+  transition: 0.2s ease all;
+  -moz-transition: 0.2s ease all;
+  -webkit-transition: 0.2s ease all;
+}
+
+input:focus ~ label,
+input:valid ~ label {
+  font-family: "Arimo", sans-serif;
+  top: -20px;
+  font-size: 14px;
+  color: #ffffff;
+}
+#fillthegaps{
+  color: rgb(255, 255, 255);
+  margin-top: 3%;
+  font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+}
