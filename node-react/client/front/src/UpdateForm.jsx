@@ -12,8 +12,6 @@ function UpdateForm({ loadData, idHolder, data, setHide }) {
   const { handleSubmit, register } = useForm();
 
   const onSubmit = (e) => {
-    // e.preventDefault();
-
     if (
       name === "" ||
       surname === "" ||
@@ -26,14 +24,14 @@ function UpdateForm({ loadData, idHolder, data, setHide }) {
       setThrowError(false);
       const myHeaders = new Headers();
       myHeaders.append("Content-Type", "application/json");
-      const b = parseInt(phone);
+      const phonenumber = parseInt(phone);
       const requestOptions = {
         method: "PUT",
         headers: myHeaders,
         body: JSON.stringify({
           name,
           surname,
-          b,
+          phonenumber,
           date,
           mail,
         }),
@@ -110,7 +108,7 @@ function UpdateForm({ loadData, idHolder, data, setHide }) {
             <div className="group">
               <input
                 type="text"
-                placeholder="Date time"
+                placeholder="Date of birth"
                 value={date}
                 name="date"
                 onChange={(e) => setDate(e.target.value)}
@@ -118,7 +116,7 @@ function UpdateForm({ loadData, idHolder, data, setHide }) {
               ></input>
               <span className="highlight"></span>
               <span className="bar"></span>
-              <label>Date time</label>
+              <label>Date of birth</label>
             </div>
             <div className="group">
               <input

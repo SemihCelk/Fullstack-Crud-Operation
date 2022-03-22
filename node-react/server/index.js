@@ -115,7 +115,7 @@ app.delete("/api/user", async (req, res) => {
 // Güncelleme
 app.put("/api/user/:id/", async (req, res, next) => {
   try {
-    const a = parseInt(req.body.b);
+    const phone = parseInt(req.body.phonenumber);
     const name = req.body.name;
     const surname = req.body.surname;
     const date = req.body.date;
@@ -130,7 +130,7 @@ app.put("/api/user/:id/", async (req, res, next) => {
       where id = $6
       RETURNING *
     `;
-    const response = await client.query(update, [name, surname, a, date, mail, req.params.id]);
+    const response = await client.query(update, [name, surname, phone, date, mail, req.params.id]);
     if(response.rows.length !== 1) {
       throw new Error('User not found')
     }
@@ -149,10 +149,10 @@ try{
 }
 catch(error){
   next(error)
-}
+} 
 });
 app.use((err, req, res, next) => {
-  //console.error(err.stack);
+  console.error(err.stack);
   const message = err.message || 'Unknown Error';
   res.status(500).json({
     message,
